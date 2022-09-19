@@ -21,9 +21,9 @@ export class LocationService {
     return from(this.Location.save(createLocationDto))
   }
 
-  // findAll() {
-  //   return `This action returns all location`;
-  // }
+  findAll() {
+    return from(this.Location.find())
+  }
 
   // findOne(id: number) {
   //   return `This action returns a #${id} location`;
