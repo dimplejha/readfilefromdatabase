@@ -10,7 +10,7 @@ export interface location_location {
     city_name?: string;
 
 
-    location?: string;
+    location?: any;
 
 
 }
