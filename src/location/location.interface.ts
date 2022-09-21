@@ -12,5 +12,7 @@ export interface location_location {
 
     location?: any;
 
+    polygon?: any;
+
 
 }
