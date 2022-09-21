@@ -1,7 +1,8 @@
 import { Column, Entity, Index, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-import { Point } from 'geojson'
+import { Point,Polygon } from 'geojson'
 import { type } from "os";
+import { IsOptional} from 'class-validator'
 @Entity('geo')
 export class Location {
     @PrimaryGeneratedColumn('increment')
@@ -23,3 +24,26 @@ export class Location {
     
 
 }
+
+@Entity('PolygonTable')
+export class Parcel {
+  @PrimaryGeneratedColumn()
+  id: number;
+  @Index({ spatial: true })
+  @Column({
+    type: 'geography',
+    spatialFeatureType: 'Polygon',
+    srid: 4326,
+    nullable: true,
+  })
+  polygon: Polygon;
+  @IsOptional()
+  position?: number[][];
+}
+
+
+
+
+
+
+

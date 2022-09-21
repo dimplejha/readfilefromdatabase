@@ -8,6 +8,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { readFileSync } from 'fs';
 import {parse} from "papaparse";
+import { Parcel } from './entities/location.entity';
 
 @Controller('gisData')
 export class LocationController {
@@ -15,11 +16,11 @@ export class LocationController {
 
  
 
-  @Post()
-  create(@Body() createLocation: CreateLocationDto): Observable<location_location> {
-    console.log(createLocation)
-    return this.locationService.create(createLocation);
-  }
+  // @Post()
+  // create(@Body() createLocation: CreateLocationDto): Observable<location_location> {
+  //   console.log(createLocation)
+  //   return this.locationService.create(createLocation);
+  // }
 
   @Get()
   findAll() {
@@ -123,6 +124,22 @@ export class LocationController {
 //     //console.log(parsedCsv)
 //   }
 // }
+
+
+
+
+
+//=======================================================================================
+
+
+
+@Post('/create')
+  async createParcelPoint(
+      @Body()
+      createParcelPointDto:Parcel
+  ): Promise<Parcel> {
+      return this.locationService.createParcelPoint(createParcelPointDto)
+  }
 
 
 
