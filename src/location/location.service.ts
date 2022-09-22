@@ -29,6 +29,11 @@ export class LocationService {
     return from(this.Location.find())
   }
 
+
+  findAllPolygon() {
+    return from(this.Parcel.find())
+  }
+
   // findOne(id: number) {
   //   return `This action returns a #${id} location`;
   // }

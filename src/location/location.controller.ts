@@ -144,6 +144,14 @@ export class LocationController {
 
 
 
+  @Get("polygon")
+  polygon() {
+    return this.locationService.findAllPolygon();
+  }
+
+
+
+
 
 
 
